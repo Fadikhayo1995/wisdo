@@ -1,4 +1,4 @@
-#Wisdo Demo
+# Wisdo Demo
 
 The APIs can be imported into postman from WISDO.postman_collection.json
 
