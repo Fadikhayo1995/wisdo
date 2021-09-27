@@ -83,6 +83,21 @@ module.exports = {
       return Promise.reject(exp);
     }
   },
+  deletePost: async function (postId) {
+    var query = `
+    UPDATE
+      db_wisdo.posts p
+    SET
+      deleted_at = timezone('asia/jerusalem', now())
+    WHERE
+      p.id = ${postId}`;
+    try {
+      await QueryRunner.runQuery(query);
+      return Promise.resolve();
+    } catch (exp) {
+      return Promise.reject(exp);
+    }
+  },
   getPost: async function (postId) {
     var query = `
     SELECT

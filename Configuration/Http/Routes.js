@@ -18,6 +18,12 @@ module.exports = [
     middlewares: ["AccessToken"]
   },
   {
+    verb: "delete",
+    route: "/api/v1/users/:id",
+    controllerAction: "Users/DeleteUser",
+    middlewares: ["AccessToken"]
+  },
+  {
     verb: "get",
     route: "/api/v1/user-feed",
     controllerAction: "Users/GetUserFeed",
@@ -39,6 +45,12 @@ module.exports = [
     verb: "get",
     route: "/api/v1/communities/:id",
     controllerAction: "Communities/GetCommunity",
+    middlewares: ["AccessToken"]
+  },
+  {
+    verb: "delete",
+    route: "/api/v1/communities/:id",
+    controllerAction: "Communities/DeleteCommunity",
     middlewares: ["AccessToken"]
   },
   {
@@ -69,6 +81,12 @@ module.exports = [
     verb: "get",
     route: "/api/v1/posts/:id",
     controllerAction: "Posts/GetPost",
+    middlewares: ["AccessToken"]
+  },
+  {
+    verb: "delete",
+    route: "/api/v1/posts/:id",
+    controllerAction: "Posts/DeletePost",
     middlewares: ["AccessToken"]
   },
   {

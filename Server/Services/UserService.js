@@ -47,6 +47,22 @@ module.exports = {
       return Promise.reject(exp);
     }
   },
+  deleteUser: async function (userId) {
+    var query = ` 
+    UPDATE
+      db_wisdo.users
+    SET
+      deleted_at = timezone('asia/jerusalem', now())
+    WHERE
+      id = ${userId}`;
+    try {
+      await QueryRunner.runQuery(query);
+      return Promise.resolve();
+    } catch (exp) {
+      console.log(exp);
+      return Promise.reject(exp);
+    }
+  },
   getUser: async function (userId) {
     var query = `
     SELECT

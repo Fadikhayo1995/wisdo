@@ -577,6 +577,107 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8020/api/v1/users/3?access_token=58e14cbd-6a34-4b66-a452-e41bc7a198a9",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"3"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "58e14cbd-6a34-4b66-a452-e41bc7a198a9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE COMMUNITY",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8020/api/v1/communities/1?access_token=58e14cbd-6a34-4b66-a452-e41bc7a198a9",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"api",
+						"v1",
+						"communities",
+						"1"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "58e14cbd-6a34-4b66-a452-e41bc7a198a9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE POST",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "user_id",
+						"type": "text",
+						"value": "3"
+					},
+					{
+						"key": "community_id",
+						"type": "text",
+						"value": "1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"this is a title no summarasasaaaaaa\",\r\n    \"body\": \"There are many variations of passages of Lorem Ipsum available, but sssthe majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore,always free,from repetition, injected humour, or non-characteristic words etc.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8020/api/v1/posts/32?access_token=58e14cbd-6a34-4b66-a452-e41bc7a198a9",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"32"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "58e14cbd-6a34-4b66-a452-e41bc7a198a9"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

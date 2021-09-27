@@ -44,7 +44,21 @@ module.exports = {
       return Promise.reject(exp);
     }
   },
-
+  deleteCommunity: async function (communityId) {
+    var query = `
+    UPDATE
+      db_wisdo.communities
+    SET
+      deleted_at = timezone('asia/jerusalem',now())
+    WHERE
+      id = ${communityId}`;
+    try {
+      await QueryRunner.runQuery(query);
+      return Promise.resolve();
+    } catch (exp) {
+      return Promise.reject(exp);
+    }
+  },
   getCommunity: async function (communityId) {
     var query = `
     SELECT
