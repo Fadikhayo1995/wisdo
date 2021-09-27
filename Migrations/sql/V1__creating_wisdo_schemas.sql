@@ -1,0 +1,2 @@
+CREATE SCHEMA IF NOT EXISTS db_wisdo;
+CREATE SCHEMA IF NOT EXISTS db_wisdo_build;

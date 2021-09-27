@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres-db
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /var/lib/postgresql-static/data
+    ports:
+      - 5439:5432
+    expose:
+      - "5439"
+
+  migrations:
+    image: boxfuse/flyway:5-alpine
+    command: -url=jdbc:postgresql://db:5432/postgres -schemas=public -user=postgres -password=password migrate
+    volumes:
+      - ./Migrations/sql:/flyway/sql
+    depends_on:
+      - db
+
+  backend:
+    build: .
+    depends_on:
+      - db
+      - migrations
+    ports:
+      - "8020:8020"
+    expose:
+      - "8020"

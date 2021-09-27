@@ -1,0 +1,28 @@
+{
+  "name": "wisdo-demo",
+  "version": "1.0.0",
+  "description": "wisdo-demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cross-env NODE_ENV=production node index.js",
+    "start:production": "cross-env NODE_ENV=production node index.js",
+    "start:development": "cross-env NODE_ENV=development node index.js",
+    "start": "cross-env NODE_ENV=local nodemon index.js",
+    "build": "cross-env NODE_ENV=development node index.js",
+    "local": "cross-env NODE_ENV=local nodemon index.js"
+  },
+  "author": "Fadi Khayo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "pg": "^8.7.1"  
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.1",
+    "nodemon": "^2.0.2"
+  }
+}
