@@ -59,7 +59,7 @@ module.exports = {
     FROM
       db_wisdo.users u
     LEFT JOIN db_wisdo.users_communities uc on
-      uc.user_id = uc.community_id
+      uc.user_id = u.id
       and uc.deleted_at is null
     LEFT JOIN db_wisdo.communities c on
       uc.community_id = c.id
