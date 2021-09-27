@@ -101,15 +101,32 @@ module.exports = {
   getPost: async function (postId) {
     var query = `
     SELECT
-      *
+      p.id,
+      p.title,
+      p.summary,
+      p.body,
+      p.author_id,
+      p.community_id,
+      count(distinct ul.id) as likes
     FROM
       db_wisdo.posts p
+    LEFT JOIN 
+      db_wisdo.users_likes ul on
+        ul.post_id = p.id
     WHERE
-      p.id = ${postId}`;
+      p.id = ${postId}
+    GROUP BY
+      p.id,
+      p.title,
+      p.summary,
+      p.body,
+      p.author_id,
+      p.community_id`;
     try {
       var result = await QueryRunner.runQuery(query);
       return Promise.resolve(result && result.rows && result.rows[0]);
     } catch (exp) {
+      console.log(exp);
       return Promise.reject(exp);
     }
   },
