@@ -1,6 +1,5 @@
 const QueryRunner = require('../Utils/QueryRunner');
 const SQLStringUtil = require('../Utils/SQLStringUtil');
-const StringUtils = require('../Utils/StringUtils');
  
 module.exports = {
   createUser: async function (user) {
