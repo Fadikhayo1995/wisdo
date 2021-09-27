@@ -30,12 +30,12 @@ services:
       db:
         condition: service_healthy
 
-  # backend:
-  #   build: .
-  #   depends_on:
-  #     - db
-  #     - migrations
-  #   ports:
-  #     - "8020:8020"
-  #   expose:
-  #     - "8020"
+  backend:
+    build: .
+    depends_on:
+      - db
+      - migrations
+    ports:
+      - "8020:8020"
+    expose:
+      - "8020"
