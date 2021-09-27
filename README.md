@@ -1,4 +1,6 @@
-# The APIs can be imported into postman from WISDO.postman_collection.json
+#Wisdo Demo
+
+The APIs can be imported into postman from WISDO.postman_collection.json
 
 In order to run the backend there is run.bat file or using docker-compose build then docker-compose run
 
