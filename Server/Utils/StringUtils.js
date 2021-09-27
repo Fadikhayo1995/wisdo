@@ -11,7 +11,7 @@ module.exports = {
         break;
       }
     }
-    return newString;
+    return newString.trim();
   },
  
 };
