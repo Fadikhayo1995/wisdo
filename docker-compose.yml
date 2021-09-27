@@ -9,6 +9,13 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_HOST_AUTH_METHOD: trust
       PGDATA: /var/lib/postgresql-static/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
     ports:
       - 5439:5432
     expose:
@@ -20,7 +27,8 @@ services:
     volumes:
       - ./Migrations/sql:/flyway/sql
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   backend:
     build: .

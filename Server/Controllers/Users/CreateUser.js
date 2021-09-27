@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
     var result = await UserService.createUser(data);
     return res.status(200).send(ResponseBuilder.buildErrorResponse(200, 'success', result));
    } catch (exp) {
-     console.log(exp);
     return res.status(500).send(ResponseBuilder.buildErrorResponse(500, 'Internal server error', exp));
   }
 };

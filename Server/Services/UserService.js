@@ -54,7 +54,8 @@ module.exports = {
       u.name,
       u.image,
       u.country,
-      u.role_id
+      u.role_id,
+      json_agg(c.*) as communities
     FROM
       db_wisdo.users u
     LEFT JOIN db_wisdo.users_communities uc on
@@ -131,7 +132,6 @@ module.exports = {
       }
       return Promise.resolve(false);
     } catch (exp) {
-      console.log(exp)
       return Promise.reject(exp);
     }
   },

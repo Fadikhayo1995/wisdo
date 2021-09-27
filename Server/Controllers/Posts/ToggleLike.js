@@ -10,7 +10,6 @@ module.exports = async (req, res) => {
     await PostService.toggleLike(userId, postId, isLike);
     return res.status(200).send(ResponseBuilder.buildErrorResponse(200, 'success', 'Post ' + (isLike ? 'liked':'disliked')));
    } catch (exp) {
-     console.log(exp)
     return res.status(500).send(ResponseBuilder.buildErrorResponse(500, 'Internal server error', exp));
   }
 };

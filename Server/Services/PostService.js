@@ -3,8 +3,7 @@ const SQLStringUtil = require('../Utils/SQLStringUtil');
 const CommunitiesService = require('./CommunitiesService');
 const SendEmail = require('../Utils/SendMail');
 const StringUtils = require('../Utils/StringUtils');
-const environment = require('../../Configuration/Environment/AppEnv')
-
+const environment = require('../../Configuration/Environment/AppEnv');
 
 module.exports = {
   createPost: async function(userId, communityId, post)  {
@@ -25,7 +24,6 @@ module.exports = {
       this.checkWatchlist(uploadedPost);
       return Promise.resolve(result && result.rows && result.rows.length && result.rows[0]);
     } catch (exp) {
-      console.log(exp);
       return Promise.reject(exp);
     }
   },
@@ -73,7 +71,6 @@ module.exports = {
         return Promise.resolve(null);
       await this.sendEmailToModerators(communityId, postId);
     } catch (exp) {
-      console.log(exp);
       return Promise.reject(exp);
     }
   },
@@ -117,7 +114,6 @@ module.exports = {
       await QueryRunner.runQuery(query);
       return Promise.resolve();
     } catch (exp) {
-      console.log(exp)
       return Promise.reject(exp);
     }
   },

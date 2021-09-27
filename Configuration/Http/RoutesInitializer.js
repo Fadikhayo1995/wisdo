@@ -1,13 +1,6 @@
 const ControllersPath = '../../Server/Controllers/';
 const MiddlewaresPath = '../../Server/Middlewares/';
 
-// const cache = require('express-redis-cache')(require('./Cache').configurations);
-
-/**
- * Define the error handler of the cache
- */
-// cache.on('error', require('./Cache').errorHandler);
-
 var routeHandler = function (req, res, controllerAction, middlewares) {
   next = true;
   for (index = 0; index < middlewares.length; index++) {
@@ -18,7 +11,7 @@ var routeHandler = function (req, res, controllerAction, middlewares) {
   }
   if (next)
     controllerAction(req, res);
-}
+};
 
 module.exports = {
   initRoutes: function (app) {
